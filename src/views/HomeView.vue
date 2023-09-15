@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <GrupKartuInformasi :dataKartu="getDaftarBerita" />
+      </div>
+      <div class="col-2"></div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapGetters, mapActions } from "vuex";
+import { formatTanggal } from "../utils";
+import GrupKartuInformasi from "../components/GrupKartuInformasi.vue";
 
 export default {
-  name: 'HomeView',
+  computed: {
+    ...mapGetters(["getJumlahBerita", "getDaftarBerita"]),
+  },
+  methods: {
+    ...mapActions(["fetchBerita"]),
+    formatTanggal,
+  },
+  created() {
+    this.getJumlahBerita == 0 && this.fetchBerita();
+  },
   components: {
-    HelloWorld
-  }
-}
+    GrupKartuInformasi,
+  },
+};
 </script>
