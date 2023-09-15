@@ -9,6 +9,9 @@ Repositori ini berisi solusi latihan materi ke-6 dari pelatihan Vue JS pada prog
 ![perintah latihan ke 5](/task/perintah-5.jpg)
 
 ## Project setup
+
+Replace VUE_APP_NEWS_API_KEY with your newsapi.org API KEY 
+
 ```
 npm install
 ```

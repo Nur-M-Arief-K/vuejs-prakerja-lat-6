@@ -27,7 +27,7 @@ export default createStore({
         const response = await fetch('https://newsapi.org/v2/top-headlines?country=us', {
           method: "GET",
           headers: {
-            'X-Api-Key': 'd4b3e14caad9421bab00fb098c277d62'
+            'X-Api-Key': process.env.VUE_APP_NEWS_API_KEY
           }
         });
         const result = await response.json();
